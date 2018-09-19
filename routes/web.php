@@ -24,5 +24,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/post/create' ,'PostsController@create')->name('post.create');
     
     Route::post('/post/store' ,'PostsController@store')->name('post.store');
+
+    Route::get('/categories' ,'CategoriesController@index')->name('categories');
+
+    Route::get('/category/create' ,'CategoriesController@create')->name('category.create');
+
+    Route::post('/category/store' ,'CategoriesController@store')->name('category.store');
 });
 
