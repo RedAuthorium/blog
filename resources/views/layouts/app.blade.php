@@ -17,7 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
@@ -101,5 +103,18 @@
             </div>
         </main>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
+
+    <script>
+        @if (Session::has('success'))
+
+            toastr.success("{{ Session::get('success') }}")
+
+        @endif
+    </script>   
+
 </body>
 </html>
