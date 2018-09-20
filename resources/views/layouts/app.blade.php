@@ -92,6 +92,9 @@
                                 <li class="list-group-item">
                                     <a href="{{ route('categories') }}">Categories</a>
                                 </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('posts') }}">See all posts</a>
+                                </li>
                             </ul>
                         </div>
                     @endif                        
