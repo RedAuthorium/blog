@@ -6,21 +6,21 @@
 
 <div class="card">
     <div class="card-header">
-        Create New Post!
+        Edit Category: {{ $category->name }}
     </div>
 
     <div class="card-body">
-        <form action="{{ route('category.store') }}" method="POST">
+        <form action="{{ route('category.update', ['id' => $category->id]) }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="name">Category Name</label>
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" value="{{ $category->name }}" class="form-control">
             </div>
 
             <div class="form-group">
                 <div class="text-center">
                     <button class="btn btn-success" type="submit">
-                        Make Category
+                        Edit Category
                     </button>
                 </div>
             </div>

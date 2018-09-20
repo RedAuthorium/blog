@@ -18,6 +18,12 @@
 							<td>
 								{{ $category->name }}
 							</td>
+							<td>
+								<a href="{{ route('category.edit', ['id' => $category->id]) }}" class="btn btn-xs btn-info">Update</a>
+							</td>
+							<td>
+								<a href="{{ route('category.delete', ['id' => $category->id]) }}" class="btn btn-xs btn-danger">Delete</a>
+							</td>
 						</tr>
 					@endforeach
 
