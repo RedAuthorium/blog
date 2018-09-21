@@ -27,6 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     
     Route::post('/post/store' ,'PostsController@store')->name('post.store');
 
+    Route::get('/post/delete/{id}' ,'PostsController@destroy')->name('post.delete');
 
     //category route
 

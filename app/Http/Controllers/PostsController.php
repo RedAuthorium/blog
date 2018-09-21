@@ -62,7 +62,7 @@ class PostsController extends Controller
         $post = Post::create([
             'title'       => $request->title,
             'content'     => $request->content,
-            'featured'    => 'uploads/posts' . $request->featured,
+            'featured'    => 'uploads/posts/' . $featured_new_name,
             'category_id' => $request->category_id,
             'slug'        => str_slug($request->title)
         ]);
@@ -114,6 +114,10 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->delete();
+
+        return redirect()->back();
     }
 }
