@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
 
     Route::get('/posts', 'PostsController@index')->name('posts');
 
+    Route::get('/post/trashed', 'PostsController@trashed')->name('post.trash');
+
     Route::get('/post/create' ,'PostsController@create')->name('post.create');
     
     Route::post('/post/store' ,'PostsController@store')->name('post.store');

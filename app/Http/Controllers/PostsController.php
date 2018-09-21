@@ -118,6 +118,15 @@ class PostsController extends Controller
 
         $post->delete();
 
+        Session::flash('success', 'Your post moved to trash!');
+
         return redirect()->back();
+    }
+
+    public function trashed()
+    {
+        $posts = Post::onlyTrashed()->get();
+
+        return view('admin.posts.trashed')->with('posts', $posts);
     }
 }
