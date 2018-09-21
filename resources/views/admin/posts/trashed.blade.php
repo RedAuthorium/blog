@@ -19,8 +19,8 @@
 						<td><img src="{{ $post->featured }}" width="90px" height="50px"></td>
 						<td> {{ $post->title }} </td>
 						<td>Edit</td>
-						<td><a href="{{ route('post.trash', ['id' => $post->id]) }}" class="btn btn-success">Restore</a></td>
-						<td><a href="{{ route('post.delete', ['id' => $post->id]) }}" class="btn btn-danger">Delete</a></td>
+						<td><a href="{{ route('post.restore', ['id' => $post->id]) }}" class="btn btn-success">Restore</a></td>
+						<td><a href="{{ route('post.remove', ['id' => $post->id]) }}" class="btn btn-danger">Remove</a></td>
 					</tr>
 				@endforeach
 

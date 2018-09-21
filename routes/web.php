@@ -25,6 +25,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
 
     Route::get('/post/trashed', 'PostsController@trashed')->name('post.trash');
 
+    Route::get('/post/remove/{id}', 'PostsController@remove')->name('post.remove');
+
+    Route::get('/post/restore/{id}', 'PostsController@restore')->name('post.restore');
+
     Route::get('/post/create' ,'PostsController@create')->name('post.create');
     
     Route::post('/post/store' ,'PostsController@store')->name('post.store');

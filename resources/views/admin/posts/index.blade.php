@@ -8,7 +8,7 @@
 					<th>Image</th>
 					<th>Title</th>
 					<th>Edit</th>
-					<th>Delete</th>
+					<th>Trash</th>
 			</thead>
 			<div class="card-block">
 				<tbody>
