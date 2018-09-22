@@ -52,5 +52,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/category/delete/{id}', 'CategoriesController@destroy')->name('category.delete');
 
     Route::post('/category/update/{id}', 'CategoriesController@update')->name('category.update');
+
+    //Tag route
+
+    Route::get('/tags' ,'TagsController@index')->name('tags');
+
+    Route::get('/tag/create' ,'TagsController@create')->name('tag.create');
+
+    Route::post('/tag/store' ,'TagsController@store')->name('tag.store');
+
+    Route::get('/tag/edit/{id}', 'TagsController@edit')->name('tag.edit');
+
+    Route::get('/tag/delete/{id}', 'TagsController@destroy')->name('tag.delete');
+
+    Route::post('/tag/update/{id}', 'TagsController@update')->name('tag.update');
 });
 

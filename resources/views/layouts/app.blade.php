@@ -84,16 +84,22 @@
                                     <a href="{{ route('home') }}">Home</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="{{ route('categories') }}">Categories</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('posts') }}">Posts</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('tags') }}">Tags</a>
+                                </li>
+                                <li class="list-group-item">
                                     <a href="{{ route('category.create') }}">Create New Category</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{ route('post.create') }}">Create New Post!</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('categories') }}">Categories</a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="{{ route('posts') }}">See all posts</a>
+                                    <a href="{{ route('tag.create') }}">Create New Tag!</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{ route('post.trash') }}">Trash</a>

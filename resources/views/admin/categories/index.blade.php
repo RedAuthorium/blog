@@ -31,7 +31,7 @@
 						@endforeach
 					@else
 						<tr>
-							<td class="text-center" colspan=5>No posts have been published yet.</td>
+							<td class="text-center" colspan=5>No categories yet!.</td>
 						</tr>
 					@endif
 
