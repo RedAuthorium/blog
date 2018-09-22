@@ -35,6 +35,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
 
     Route::get('/post/delete/{id}' ,'PostsController@destroy')->name('post.delete');
 
+    Route::get('/post/edit/{id}' ,'PostsController@edit')->name('post.edit');
+
+    Route::post('/post/update/{id}' ,'PostsController@update')->name('post.update');
+
     //category route
 
     Route::get('/categories' ,'CategoriesController@index')->name('categories');
