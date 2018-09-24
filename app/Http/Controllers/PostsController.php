@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
 use Session;
 use App\Post;
 use App\Category;
@@ -35,7 +36,8 @@ class PostsController extends Controller
             return redirect()->back();
         }
 
-        return view('admin.posts.create')->with('categories', $categories);
+        return view('admin.posts.create')->with('categories', $categories)
+                                        ->with('tags', Tag::all());
     }
 
     /**
@@ -50,7 +52,8 @@ class PostsController extends Controller
             'title'       => 'required',
             'content'     => 'required',
             'featured'    => 'required|image',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'tags'         => 'required'
         ]);
 
         $featured =  $request->featured;
@@ -66,6 +69,8 @@ class PostsController extends Controller
             'category_id' => $request->category_id,
             'slug'        => str_slug($request->title)
         ]);
+
+        $post->tags()->attach($request->tags);
  
         Session::flash('success', 'Your post is successfully created');
 
@@ -95,7 +100,11 @@ class PostsController extends Controller
 
         $category = Category::all();
 
-        return view('admin.posts.edit')->with('post', $post)->with('categories', $category);
+        $tag = Tag::all();
+
+        return view('admin.posts.edit')->with('post', $post)
+                                      ->with('categories', $category)
+                                      ->with('tags', $tag);
     }
 
     /**
@@ -110,7 +119,8 @@ class PostsController extends Controller
             $this->validate($request, [
             'title'       => 'required',
             'content'     => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'tags'         => 'required'
         ]);
 
         $post = Post::findOrFail($id);
@@ -130,6 +140,8 @@ class PostsController extends Controller
         $post->category_id = $request->category_id;
 
         $post->save();
+
+        $post->tags()->sync($request->tags);
  
         Session::flash('success', 'Your post is successfully updated');
 

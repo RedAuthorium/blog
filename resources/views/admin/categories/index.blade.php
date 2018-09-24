@@ -4,6 +4,9 @@
 
 	<div class="card">
 		<div class="card-header">
+			<span style="float:right;">
+				<a href="{{ route('category.create') }}">Create</a>
+			</span>
 			Categories
 		</div>
 		<table class="table table-hover">

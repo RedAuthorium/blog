@@ -27,12 +27,21 @@
                 <select name="category_id" id="category" class="form-control">
 
                     @foreach($categories as $category)
-
-                        <option value="{{$category->id }}">{{ $category->name }}</option>}
-                
+                        <option value="{{$category->id }}">{{ $category->name }}</option>
                     @endforeach
 
                 </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tag">Select tag</label>
+
+                @foreach ($tags as $tag)
+                    <div class="checkbox">
+                        <input type="checkbox" name="tags[]" value="{{$tag->id}}">{{ $tag->tag }}
+                    </div>
+                @endforeach
+
             </div>
 
             <div class="form-group">

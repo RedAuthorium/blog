@@ -4,10 +4,10 @@
 
 	<div class="card">
 		<div class="card-header">
-			Tags
-			<div class="text-right">
+			<span style="float:right;">
 				<a href="{{ route('tag.create') }}">Create</a>
-			</div>
+			</span>
+			Tags
 		</div>
 		<table class="table table-hover">
 			<thead>
