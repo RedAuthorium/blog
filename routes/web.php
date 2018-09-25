@@ -71,7 +71,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
 
     Route::post('/tag/update/{id}', 'TagsController@update')->name('tag.update');
 
-    //User Route
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function(){
 
     Route::get('/users', 'UsersController@index')->name('users');
 
@@ -82,5 +84,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/user/admin/{id}', 'UsersController@admin')->name('user.admin');
 
     Route::get('/user/not-admin/{id}', 'UsersController@notAdmin')->name('user.not.admin');
+    
 });
-
