@@ -71,6 +71,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
 
     Route::post('/tag/update/{id}', 'TagsController@update')->name('tag.update');
 
+    // route profile
+
+    Route::get('user/profile', 'ProfilesController@index')->name('user.profile');
+
+    Route::post('user/profile/update', 'ProfilesController@update')->name('user.profile.update');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function(){
