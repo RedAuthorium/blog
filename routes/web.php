@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return App\User::find(4)->profile;
+});
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
@@ -66,5 +70,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/tag/delete/{id}', 'TagsController@destroy')->name('tag.delete');
 
     Route::post('/tag/update/{id}', 'TagsController@update')->name('tag.update');
+
+    //User Route
+
+    Route::get('/users', 'UsersController@index')->name('users');
+
+    Route::get('/user/create', 'UsersController@create')->name('user.create');
+
+    Route::post('/user/store', 'UsersController@store')->name('user.store');
+
+    Route::get('/user/admin/{id}', 'UsersController@admin')->name('user.admin');
+
+    Route::get('/user/not-admin/{id}', 'UsersController@notAdmin')->name('user.not.admin');
 });
 

@@ -84,6 +84,9 @@
                                     <a href="{{ route('home') }}">Home</a>
                                 </li>
                                 <li class="list-group-item">
+                                    <a href="{{ route('users') }}">Users</a>
+                                </li>
+                                <li class="list-group-item">
                                     <a href="{{ route('categories') }}">Categories</a>
                                 </li>
                                 <li class="list-group-item">
@@ -91,6 +94,9 @@
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{ route('tags') }}">Tags</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ route('user.create') }}">Create New User</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href="{{ route('category.create') }}">Create New Category</a>
