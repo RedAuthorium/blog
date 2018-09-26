@@ -27,13 +27,15 @@
 							</td>
 							<td>
 								@if( $user->admin )
-									<a href="{{ route('user.not.admin', ['id' => $user->id]) }}" class="btn btn-danger">Remove Admin</a>
+									<a href="{{ route('user.not.admin', ['id' => $user->id]) }}" class="btn btn-danger btn-sm">Remove Admin</a>
 								@else
-									<a href="{{ route('user.admin', ['id' => $user->id]) }}" class="btn btn-success">Make Admin</a>
+									<a href="{{ route('user.admin', ['id' => $user->id]) }}" class="btn btn-success btn-sm">Make Admin</a>
 								@endif
 							</td>
 							<td>
-								Trash
+								@if (Auth::id() !== $user->id)
+									<a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn btn-danger btn-sm">Delete</a>
+								@endif
 							</td>
 						</tr>
 					@endforeach

@@ -105,7 +105,7 @@ class ProfilesController extends Controller
 
         Session::flash('success', 'your profile successfully updated');
 
-        return redirect()->route('users');
+        return redirect()->route('home');
 
     }
 
@@ -117,6 +117,6 @@ class ProfilesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }
