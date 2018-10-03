@@ -11,9 +11,7 @@
 
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontEndController@index')->name('index');
 
 Route::get('/test', function () {
     return App\User::find(4)->profile;
@@ -90,5 +88,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::get('/user/admin/{id}', 'UsersController@admin')->name('user.admin');
 
     Route::get('/user/not-admin/{id}', 'UsersController@notAdmin')->name('user.not.admin');
+
+    // route setting
+
+    Route::get('/settings', 'SettingsController@index')->name('settings');
+
+    Route::post('setting/update', 'SettingsController@update')->name('setting.update');
 });
 
