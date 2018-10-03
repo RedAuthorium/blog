@@ -33,6 +33,11 @@
             </div>
 
             <div class="form-group">
+                <label for="about">About</label>
+                <textarea name="about" class="form-control" value="">{{ $settings->about }}</textarea>
+            </div>
+
+            <div class="form-group">
                 <div class="text-center">
                     <button class="btn btn-success" type="submit">
                         Save
