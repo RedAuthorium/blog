@@ -86,6 +86,14 @@ img {
   display: inline-block;
   vertical-align: middle; }
 
+.second-post {
+  height: 300px;
+}
+
+.third-post {
+  height: 300px;
+}
+
 blockquote {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
@@ -7647,6 +7655,25 @@ form.w-search {
   height: 1px;
   width: 1px;
   overflow: hidden; }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.tag-container {
+  float: left;
+  position: relative;
+  left: 50%;
+}
+.fixer-container {
+  float: left;
+  position: relative;
+  left: -50%;
+}
+
 
 /**/
 

@@ -61,7 +61,7 @@
                             <div class="post__content-info">
 
                                     <h2 class="post__title entry-title text-center ">
-                                        <a href="15_blog_details.html">{{ $first_post->title }}</a>
+                                        <a href="{{ route('single.post', ['slug' => $first_post->slug ]) }}">{{ $first_post->title }}</a>
                                     </h2>
 
                                     <div class="post-additional-info">
@@ -99,7 +99,7 @@
                 <article class="hentry post post-standard has-post-thumbnail sticky">
 
                         <div class="post-thumb">
-                            <img src="{{ $third_post->featured }}" alt="seo" height="120px">
+                            <img src="{{ $second_post->featured }}" alt="seo" class="second-post">
                         </div>
 
                         <div class="post__content">
@@ -107,7 +107,7 @@
                             <div class="post__content-info">
 
                                     <h2 class="post__title entry-title ">
-                                        <a href="15_blog_details.html">{{ $third_post->title }}</a>
+                                        <a href="{{ route('single.post', ['slug' => $second_post->slug ]) }}">{{ $second_post->title }}</a>
                                     </h2>
 
                                     <div class="post-additional-info">
@@ -117,7 +117,7 @@
                                             <i class="seoicon-clock"></i>
 
                                             <time class="published" datetime="2016-04-17 12:00:00">
-                                                April 17, 2016
+                                                {{ $second_post->created_at->diffForHumans() }}
                                             </time>
 
                                         </span>
@@ -125,6 +125,11 @@
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
                                             <a href="#">Video</a>
+                                        </span>
+
+                                        <span class="category">
+                                            <i class="seoicon-tags"></i>
+                                            <a href="#">{{ $second_post->category->name }}</a>
                                         </span>
 
                                         <span class="post__comments">
@@ -142,7 +147,7 @@
                 <article class="hentry post post-standard has-post-thumbnail sticky">
 
                         <div class="post-thumb">
-                            <img src="{{ $second_post->featured }}" height="120px">
+                            <img src="{{ $third_post->featured }}" class="third-post">
                         </div>
 
                         <div class="post__content">
@@ -150,7 +155,7 @@
                             <div class="post__content-info">
 
                                     <h2 class="post__title entry-title ">
-                                        <a href="15_blog_details.html">{{ $second_post->title }}</a>
+                                        <a href="{{ route('single.post', ['slug' => $third_post->slug ]) }}">{{ $third_post->title }}</a>
                                     </h2>
 
                                     <div class="post-additional-info">
@@ -160,14 +165,14 @@
                                             <i class="seoicon-clock"></i>
 
                                             <time class="published" datetime="2016-04-17 12:00:00">
-                                                {{ $second_post->created_at }}
+                                                {{ $third_post->created_at->diffForHumans() }}
                                             </time>
 
                                         </span>
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">{{ $second_post->category->name }}</a>
+                                            <a href="#">{{ $third_post->category->name }}</a>
                                         </span>
 
                                         <span class="post__comments">

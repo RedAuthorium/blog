@@ -30,6 +30,19 @@ class FrontEndController extends Controller
     						  ->with('postscategory', $postsCategory)
     						  ->with('posts2b', $post2b)
     						  ->with('postscategory2b', $postsCategory2b);
+    }
 
+    public function singlePost($slug)
+    {
+    	$setting  = Setting::first();
+    	$category = Category::take(5)->get();
+    	$post     = Post::where('slug', $slug)->first();
+    	$tag 	  = $post->tags->all();
+
+    	return view('single')->with('post', $post)
+				    		 ->with('title', $post->title)
+				    		 ->with('settings', $setting)
+				    		 ->with('tags', $tag)
+    						 ->with('categories', $category);
     }
 }
