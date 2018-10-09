@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
 use App\Post;
 use App\Setting;
 use App\Category;
@@ -37,12 +38,18 @@ class FrontEndController extends Controller
     	$setting  = Setting::first();
     	$category = Category::take(5)->get();
     	$post     = Post::where('slug', $slug)->first();
+        $tags     = Tag::all();
     	$tag 	  = $post->tags->all();
+        $next     = Post::where('id', '>', $post->id)->orderBy('created_at', 'desc')->first();
+        $prev     = Post::where('id', '<', $post->id)->orderBy('created_at', 'desc')->first();
 
     	return view('single')->with('post', $post)
 				    		 ->with('title', $post->title)
 				    		 ->with('settings', $setting)
 				    		 ->with('tags', $tag)
+                             ->with('alltag', $tags)
+                             ->with('next', $next)
+                             ->with('prev', $prev)
     						 ->with('categories', $category);
     }
 }

@@ -45,9 +45,20 @@
 
                         <div class="post__content-info">
                             <div>
-                                <p>{{ $post->content }}</p>
+                                <p>{!! $post->content !!}</p>
+                                <div class="widget w-tags">
+                                <div class="tag-container">
+                                    <div class="fixer-container">
+                                        <div class="tags-wrap">
+                                        @foreach ($tags as $tag)
+                                            <a href="#" class="w-tags-item re" >{{ $tag->tag }}</a>
+                                        @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
                             </div>
-                       </div> 
+                        </div>
 
                     <div class="socials">Share:
                         <a href="#" class="social__item">
@@ -69,7 +80,7 @@
                 <div class="blog-details-author">
 
                     <div class="blog-details-author-thumb">
-                        <img src="app/img/blog-details-author.png" alt="Author">
+                        <img src="{{ asset('app/img/blog-details-author.png') }}" alt="Author">
                     </div>
 
                     <div class="blog-details-author-content">
@@ -83,19 +94,19 @@
                         <div class="socials">
 
                             <a href="#" class="social__item">
-                                <img src="app/svg/circle-facebook.svg" alt="facebook">
+                                <img src="{{ asset('app/svg/circle-facebook.svg') }}" alt="facebook">
                             </a>
 
                             <a href="#" class="social__item">
-                                <img src="app/svg/twitter.svg" alt="twitter">
+                                <img src="{{ asset('app/svg/twitter.svg') }}" alt="twitter">
                             </a>
 
                             <a href="#" class="social__item">
-                                <img src="app/svg/google.svg" alt="google">
+                                <img src="{{ asset('app/svg/google.svg') }}" alt="google">
                             </a>
 
                             <a href="#" class="social__item">
-                                <img src="app/svg/youtube.svg" alt="youtube">
+                                <img src="{{ asset('app/svg/youtube.svg') }}" alt="youtube">
                             </a>
 
                         </div>
@@ -104,25 +115,29 @@
 
                 <div class="pagination-arrow">
 
-                    <a href="#" class="btn-prev-wrap">
-                        <svg class="btn-prev">
-                            <use xlink:href="#arrow-left"></use>
-                        </svg>
-                        <div class="btn-content">
-                            <div class="btn-content-title">Next Post</div>
-                            <p class="btn-content-subtitle">Claritas Est Etiam Processus</p>
-                        </div>
-                    </a>
+                    @if ($next)
+                        <a href="{{ route('single.post', ['slug' => $next->slug ]) }}" class="btn-prev-wrap">
+                            <svg class="btn-prev">
+                                <use xlink:href="#arrow-left"></use>
+                            </svg>
+                            <div class="btn-content">
+                                <div class="btn-content-title">Next Post</div>
+                                <p class="btn-content-subtitle">{{ $next->title }}</p>
+                            </div>
+                        </a>
+                    @endif
 
-                    <a href="#" class="btn-next-wrap">
-                        <div class="btn-content">
-                            <div class="btn-content-title">Previous Post</div>
-                            <p class="btn-content-subtitle">Duis Autem Velius</p>
-                        </div>
-                        <svg class="btn-next">
-                            <use xlink:href="#arrow-right"></use>
-                        </svg>
-                    </a>
+                    @if($prev)
+                        <a href="{{ route('single.post', ['slug' => $prev->slug ]) }}" class="btn-next-wrap">
+                            <div class="btn-content">
+                                <div class="btn-content-title">Previous Post</div>
+                                <p class="btn-content-subtitle">{{ $prev->title }}</p>
+                            </div>
+                            <svg class="btn-next">
+                                <use xlink:href="#arrow-right"></use>
+                            </svg>
+                        </a>
+                    @endif
 
                 </div>
 
@@ -159,14 +174,14 @@
                             </div>
                         </div>
 
-                    <div class="tag-container">
-                        <div class="fixer-container">
-                        <div class="tags-wrap">
-                            @foreach ($tags as $tag)
-                                <a href="#" class="w-tags-item re" >{{ $tag->tag }}</a>
-                            @endforeach
-                        </div>
-                        </div>
+                        <div class="tag-container">
+                            <div class="fixer-container">
+                                <div class="tags-wrap">
+                                    @foreach($alltag as $each)
+                                        <a href="#" class="w-tags-item re" >{{ $each->tag }}</a>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </aside>
@@ -176,5 +191,5 @@
 
         </main>
     </div>
-    @endsection
+@endsection
 </div>

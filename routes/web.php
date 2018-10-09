@@ -13,7 +13,7 @@
 
 Route::get('/', 'FrontEndController@index')->name('index');
 
-Route::get('/{slug}', 'FrontEndController@singlePost')->name('single.post');
+Route::get('post/{slug}', 'FrontEndController@singlePost')->name('single.post');
 
 Route::get('/test', function () {
     return App\User::find(4)->profile;
@@ -98,4 +98,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'],function(){
     Route::post('setting/update', 'SettingsController@update')->name('setting.update');
 
 });
-
