@@ -6,7 +6,7 @@
 
 <div class="stunning-header stunning-header-bg-lightviolet">
     <div class="stunning-header-content">
-        <h1 class="stunning-header-title">Category : {{ $title }}</h1>
+        <h1 class="stunning-header-title">Tag : {{ $title }}</h1>
     </div>
 </div>
 
@@ -20,11 +20,11 @@
         <main class="main">
             
             <div class="row">
-                
-                @if($category->posts->count() > 0)
+
+                @if($tag->posts->count() > 0)
                 <div class="case-item-wrap">
                     
-                    @foreach ($category->posts as $post)
+                    @foreach ($tag->posts as $post)
                     <div class="col-lg-4  col-md-4 col-sm-6 col-xs-12">
                         <div class="case-item">
                             <div class="case-item__thumb mouseover poster-3d lightbox shadow animation-disabled" data-offset="5">
@@ -36,7 +36,7 @@
                     @endforeach
 
                 @else
-                    <h1 class="text-center">Data Tidak ada</h1>
+                    <h1 class="text-area">Data Tidak Ada</h1>
                 @endif
 
                 </div>

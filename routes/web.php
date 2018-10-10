@@ -13,11 +13,24 @@
 
 Route::get('/', 'FrontEndController@index')->name('index');
 
-Route::get('post/{slug}', 'FrontEndController@singlePost')->name('single.post');
+Route::get('/results', function () {
 
+    $posts = \App\Post::where('title', 'like', '%' . request('query') . '%')->get();
+    return view('result')->with('posts', $posts)
+                         ->with('title', request('query'))
+                         ->with('settings', \App\Setting::first())
+                         ->with('categories', \App\Category::take(5)->get());
+
+});
+
+Route::get('/post/{slug}', 'FrontEndController@singlePost')->name('single.post');
+
+Route::get('/category/{id}', 'FrontEndController@category')->name('single.category');
+
+Route::get('/tag/{id}', 'FrontEndController@tag')->name('single.tag');
 
 Route::get('/test', function () {
-    return App\User::find(4)->profile;
+    return App\Category::find(5)->post;
 });
 
 Auth::routes();
