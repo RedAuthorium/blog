@@ -115,18 +115,6 @@
 
                 <div class="pagination-arrow">
 
-                    @if ($next)
-                        <a href="{{ route('single.post', ['slug' => $next->slug ]) }}" class="btn-prev-wrap">
-                            <svg class="btn-prev">
-                                <use xlink:href="#arrow-left"></use>
-                            </svg>
-                            <div class="btn-content">
-                                <div class="btn-content-title">Next Post</div>
-                                <p class="btn-content-subtitle">{{ $next->title }}</p>
-                            </div>
-                        </a>
-                    @endif
-
                     @if($prev)
                         <a href="{{ route('single.post', ['slug' => $prev->slug ]) }}" class="btn-next-wrap">
                             <div class="btn-content">
@@ -139,6 +127,18 @@
                         </a>
                     @endif
 
+                    @if ($next)
+                        <a href="{{ route('single.post', ['slug' => $next->slug ]) }}" class="btn-prev-wrap">
+                            <svg class="btn-prev">
+                                <use xlink:href="#arrow-left"></use>
+                            </svg>
+                            <div class="btn-content">
+                                <div class="btn-content-title">Next Post</div>
+                                <p class="btn-content-subtitle">{{ $next->title }}</p>
+                            </div>
+                        </a>
+                    @endif
+                    
                 </div>
 
                 <div class="comments">
@@ -150,7 +150,11 @@
                             <span class="long-line"></span>
                         </div>
                     </div>
+
+                    @include('includes.disqus')
+
                 </div>
+
 
                 <div class="row">
 
@@ -191,5 +195,5 @@
 
         </main>
     </div>
-@endsection
 </div>
+@endsection

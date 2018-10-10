@@ -86,6 +86,14 @@ img {
   display: inline-block;
   vertical-align: middle; }
 
+.cate-img {
+  height : 150px;
+}
+
+.first-post {
+  height: 400px
+}
+
 .second-post {
   height: 300px;
 }

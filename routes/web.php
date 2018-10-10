@@ -15,6 +15,7 @@ Route::get('/', 'FrontEndController@index')->name('index');
 
 Route::get('post/{slug}', 'FrontEndController@singlePost')->name('single.post');
 
+
 Route::get('/test', function () {
     return App\User::find(4)->profile;
 });

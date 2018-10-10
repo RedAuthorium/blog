@@ -53,7 +53,7 @@
                 <article class="hentry post post-standard has-post-thumbnail sticky">
 
                         <div class="post-thumb">
-                            <img src="{{ $first_post->featured }}" alt="{{ $first_post->title }}"  height="120px">
+                            <img src="{{ $first_post->featured }}" alt="{{ $first_post->title }}"  height="120px" class="first-post">
                         </div>
 
                         <div class="post__content">
@@ -209,7 +209,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="case-item">
                                     <div class="case-item__thumb">
-                                        <img src="{{ $post->featured }}" alt="our case">
+                                        <img src="{{ $post->featured }}" alt="our case" class="cate-img">
                                     </div>
                                     <h6 class="case-item__title"><a href="#">{{ $post->title }}</a></h6>
                                 </div>
@@ -235,7 +235,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                 <div class="case-item">
                                     <div class="case-item__thumb">
-                                        <img src="{{ $post2b->featured }}" alt="our case">
+                                        <img src="{{ $post2b->featured }}" alt="our case" class="cate-img">
                                     </div>
                                     <h6 class="case-item__title"><a href="#">{{ $post2b->title }}</a></h6>
                                 </div>
