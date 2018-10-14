@@ -6,7 +6,7 @@
 
 <div class="stunning-header stunning-header-bg-lightviolet">
     <div class="stunning-header-content">
-        <h1 class="stunning-header-title">Result of : {{ $title }}</h1>
+        <h1 class="stunning-header-title">Search results : {{ $title }}</h1>
     </div>
 </div>
 
