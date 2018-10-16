@@ -86,6 +86,10 @@ img {
   display: inline-block;
   vertical-align: middle; }
 
+.ava-img {
+  border-radius: 50%;
+}
+
 .cate-img {
   height : 150px;
 }

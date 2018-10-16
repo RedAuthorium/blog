@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
 
         Profile::create([
             'user_id' => $user->id,
-            'avatar' => 'uploads/avatars/1.jpg',
+            'avatar' => 'uploads/avatars/avatar.jpg',
             'about' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor',
             'facebook' => 'facebook.com',
             'instagram' => 'instagram.com',

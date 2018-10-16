@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Tag;
 use Session;
 use App\Post;
@@ -64,6 +65,7 @@ class PostsController extends Controller
         $featured->move('uploads/posts', $featured_new_name);
 
         $post = Post::create([
+            'user_id'     => Auth::id();
             'title'       => $request->title,
             'content'     => $request->content,
             'featured'    => 'uploads/posts/' . $featured_new_name,
