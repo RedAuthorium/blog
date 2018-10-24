@@ -60,19 +60,9 @@
                             </div>
                         </div>
 
-                    <div class="socials">Share:
-                        <a href="#" class="social__item">
-                            <i class="seoicon-social-facebook"></i>
-                        </a>
-                        <a href="#" class="social__item">
-                            <i class="seoicon-social-twitter"></i>
-                        </a>
-                        <a href="#" class="social__item">
-                            <i class="seoicon-social-linkedin"></i>
-                        </a>
-                        <a href="#" class="social__item">
-                            <i class="seoicon-social-google-plus"></i>
-                        </a>
+                    <div class="socials">
+                        <div class="text-center"><p>Make sure you share this article to your friends!</p></div>
+                        <div class="addthis_inline_share_toolbox text-center"></div>
                     </div>
 
                 </article>

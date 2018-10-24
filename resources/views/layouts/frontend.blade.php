@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/swiper.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/primary-menu.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/magnific-popup.css') }}">
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
 
     <!--Styles for RTL-->
 
@@ -52,14 +53,13 @@
                 <div class="subscribe scrollme">
                     <div class="col-lg-6 col-lg-offset-5 col-md-6 col-md-offset-5 col-sm-12 col-xs-12">
                         <h4 class="subscribe-title">Email Newsletters!</h4>
-                        <form class="subscribe-form" method="post" action="">
+                        <form class="subscribe-form" method="post" action="/subscribe">
+                            {{ csrf_field() }}
                             <input class="email input-standard-grey input-white" name="email" required="required" placeholder="Your Email Address" type="email">
-                            <button class="subscr-btn">subscribe
+                            <button class="subscr-btn" type="submit">subscribe
                                 <span class="semicircle--right"></span>
                             </button>
                         </form>
-                        <div class="sub-title">Sign up for new Seosignt content, updates, surveys & offers.</div>
-
                     </div>
 
                     <div class="images-block">
@@ -146,12 +146,21 @@
 <script src="{{ asset('app/js/swiper.jquery.min.js') }}"></script>
 <script src="{{ asset('app/js/theme-plugins.js') }}"></script>
 <script src="{{ asset('app/js/main.js') }}"></script>
-{{-- <script src="{{ asset('app/js/form-actions.js') }}"></script> --}}
+<script type="text/javascript" src="{{ asset('js/toastr.min.js') }}"></script>
 <script src="{{ asset('app/js/velocity.min.js') }}"></script>
 <script src="{{ asset('app/js/ScrollMagic.min.js') }}"></script>
 <script src="{{ asset('app/js/animation.velocity.min.js') }}"></script>
 <!-- ...end JS Script -->
 
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5bc6b1dafdd8dec1"></script>
+
+<script>
+    @if (Session::has('subscribe'))
+
+        toastr.success("{{ Session::get('subscribe') }}")
+
+    @endif
+</script>
 </body>
 </html>
 

@@ -65,7 +65,7 @@ class PostsController extends Controller
         $featured->move('uploads/posts', $featured_new_name);
 
         $post = Post::create([
-            'user_id'     => Auth::id();
+            'user_id'     => Auth::id(),
             'title'       => $request->title,
             'content'     => $request->content,
             'featured'    => 'uploads/posts/' . $featured_new_name,
@@ -140,6 +140,7 @@ class PostsController extends Controller
 
         $post->title = $request->title;
         $post->content =  $request->content;
+        $post->slug = str_slug($request->title);
         $post->category_id = $request->category_id;
 
         $post->save();

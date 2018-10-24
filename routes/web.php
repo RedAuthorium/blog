@@ -13,6 +13,14 @@
 
 Route::get('/', 'FrontEndController@index')->name('index');
 
+Route::post('/subscribe', function() {
+    $email = request('email');
+    Newsletter::subscribe($email);
+
+    Session::flash('subscribe', 'You are join us!');
+    return redirect()->back();
+});
+
 Route::get('/results', function () {
 
     $posts = \App\Post::where('title', 'like', '%' . request('query') . '%')->get();
